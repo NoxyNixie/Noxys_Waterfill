@@ -1,11 +1,4 @@
-local choices = {
-	recipe_difficulty = {
-			easy = "Easy",
-			normal = "Normal",
-			hard = "Hard",
-			extrahard = "Extra Hard",
-		},
-	}
+local choices = require("choices")
 
 data:extend({
 	-- Startup

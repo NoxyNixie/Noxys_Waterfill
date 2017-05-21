@@ -1,15 +1,17 @@
+local choices = require("choices")
+
 for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
 	if data.raw.recipe[r] then
-		if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == "normal" then
+		if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.normal then
 			data.raw.recipe[r].ingredients = {
 				{type = "fluid", name = "water", amount = 1000}
 			}
-		elseif settings.startup["Noxys_Waterfill-recipe-difficulty"].value == "hard" then
+		elseif settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.hard then
 			data.raw.recipe[r].ingredients = {
 				{type = "fluid", name = "water", amount = 1000}, 
 				{type = "item", name = "explosives", amount = 1}
 			}
-		elseif settings.startup["Noxys_Waterfill-recipe-difficulty"].value == "extrahard" then
+		elseif settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.extrahard then
 			data.raw.recipe[r].ingredients = {
 				{type = "fluid", name = "water", amount = 1000}, 
 				{type = "item", name = "explosives", amount = 10},

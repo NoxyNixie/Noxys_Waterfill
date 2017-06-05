@@ -50,5 +50,21 @@ data:extend({
 		order = "e"
 	},
 	-- Global
+	{
+		type = "bool-setting",
+		name = "Noxys_Waterfill-reach-increase-while-holding-waterfill",
+		setting_type = "runtime-global",
+		default_value = true,
+		order = "a"
+	},
+	{
+		type = "int-setting",
+		name = "Noxys_Waterfill-reach-with-waterfill",
+		setting_type = "runtime-global",
+		minimum_value = 1,
+		default_value = 100,
+		maximum_value = 10000,
+		order = "b"
+	},
 	-- Per user
 })

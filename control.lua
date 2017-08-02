@@ -62,7 +62,11 @@ script.on_event({defines.events.on_runtime_mod_setting_changed}, function(event)
 		validate_global()
 		for _,player in pairs(game.players) do
 			if is_waterfill(player.cursor_stack) then
-				player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + (settings.global["Noxys_Waterfill-reach-with-waterfill"].value - global.last_distance_bonus)
+				if player.character.character_build_distance_bonus + (settings.global["Noxys_Waterfill-reach-with-waterfill"].value - global.last_distance_bonus) >= 0 then
+					player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + (settings.global["Noxys_Waterfill-reach-with-waterfill"].value - global.last_distance_bonus)
+				else
+					player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + settings.global["Noxys_Waterfill-reach-with-waterfill"].value
+				end
 			end
 		end
 		global.last_distance_bonus = settings.global["Noxys_Waterfill-reach-with-waterfill"].value

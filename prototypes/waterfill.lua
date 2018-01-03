@@ -4,6 +4,7 @@ data:extend({
 		type = "item",
 		name = "waterfill",
 		icon = "__Noxys_Waterfill__/graphics/icons/waterfill.png",
+		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
 		subgroup = "terrain",
 		order = "c[landfill]-z-a[water]",
@@ -37,6 +38,7 @@ if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 			type = "item",
 			name = "deepwaterfill",
 			icon = "__Noxys_Waterfill__/graphics/icons/deepwaterfill.png",
+			icon_size = 32,
 			flags = {"goes-to-main-inventory"},
 			subgroup = "terrain",
 			order = "c[landfill]-z-b[deepwater]",
@@ -45,7 +47,7 @@ if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 			{
 				result = "deepwater",
 				condition_size = 2,
-	      condition = { "ground-tile"}
+				condition = { "ground-tile"}
 			},
 		},
 		-- Recipe
@@ -71,6 +73,7 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 			type = "item",
 			name = "waterfill-green",
 			icon = "__Noxys_Waterfill__/graphics/icons/waterfill-green.png",
+			icon_size = 32,
 			flags = {"goes-to-main-inventory"},
 			subgroup = "terrain",
 			order = "c[landfill]-z-c[water-green]",
@@ -104,6 +107,7 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 				type = "item",
 				name = "deepwaterfill-green",
 				icon = "__Noxys_Waterfill__/graphics/icons/deepwaterfill-green.png",
+				icon_size = 32,
 				flags = {"goes-to-main-inventory"},
 				subgroup = "terrain",
 				order = "c[landfill]-z-d[deepwater-green]",
@@ -112,7 +116,7 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 				{
 					result = "deepwater-green",
 					condition_size = 2,
-		      condition = { "ground-tile"}
+					condition = { "ground-tile"}
 				},
 			},
 			-- Recipe

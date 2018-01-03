@@ -88,6 +88,7 @@ script.on_event({defines.events.on_player_cursor_stack_changed}, function(event)
 	if settings.global["Noxys_Waterfill-reach-increase-while-holding-waterfill"].value then
 		validate_global()
 		local player = game.players[event.player_index]
+		if not player.character then return end
 		local cursor_stack = player.cursor_stack
 		if global.last_cursor_stack_name[event.player_index] and cursor_stack and cursor_stack.valid_for_read and global.last_cursor_stack_name[event.player_index] == cursor_stack.name then return end
 		if is_waterfill(cursor_stack) then

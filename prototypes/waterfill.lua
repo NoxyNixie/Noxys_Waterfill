@@ -13,7 +13,7 @@ data:extend({
 		{
 			result = "water",
 			condition_size = 1,
-			condition = {"water-tile"},
+			condition = {},
 		},
 	},
 	-- Recipe
@@ -25,9 +25,9 @@ data:extend({
 		category = "crafting-with-fluid",
 		ingredients =
 		{
-			{type="fluid", name="water", amount=100,},
+			{type = "fluid", name = "water", amount = 100},
 		},
-		result= "waterfill",
+		result = "waterfill",
 		result_count = 1,
 	},
 })
@@ -46,8 +46,8 @@ if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 			place_as_tile =
 			{
 				result = "deepwater",
-				condition_size = 2,
-				condition = { "ground-tile"}
+				condition_size = 1,
+				condition = {}
 			},
 		},
 		-- Recipe
@@ -59,9 +59,9 @@ if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 			category = "crafting-with-fluid",
 			ingredients =
 			{
-				{type="fluid", name="water", amount=100,},
+				{type = "fluid", name = "water", amount = 100},
 			},
-			result= "deepwaterfill",
+			result = "deepwaterfill",
 			result_count = 1,
 		},
 	})
@@ -82,7 +82,7 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 			{
 				result = "water-green",
 				condition_size = 1,
-				condition = {"water-tile"},
+				condition = {},
 			},
 		},
 		-- Recipe
@@ -94,9 +94,9 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 			category = "crafting-with-fluid",
 			ingredients =
 			{
-				{type="fluid", name="water", amount=100,},
+				{type = "fluid", name = "water", amount = 100},
 			},
-			result= "waterfill-green",
+			result = "waterfill-green",
 			result_count = 1,
 		},
 	})
@@ -115,8 +115,8 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 				place_as_tile =
 				{
 					result = "deepwater-green",
-					condition_size = 2,
-					condition = { "ground-tile"}
+					condition_size = 1,
+					condition = {}
 				},
 			},
 			-- Recipe
@@ -128,9 +128,9 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 				category = "crafting-with-fluid",
 				ingredients =
 				{
-					{type="fluid", name="water", amount=100,},
+					{type = "fluid", name = "water", amount = 100},
 				},
-				result= "deepwaterfill-green",
+				result = "deepwaterfill-green",
 				result_count = 1,
 			},
 		})

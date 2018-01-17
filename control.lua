@@ -32,31 +32,6 @@ local function validate_global()
 	end
 end
 
-
--- script.on_event({defines.events.on_pre_player_died}, function(event)
--- 	if not event.cause then
--- 		local player = game.players[event.player_index]
--- 		local tile = player.surface.get_tile(player.position.x, player.position.y)
--- 		game.print("?: " .. tile.name)
--- 		if is_water_str(tile.name) then
--- 			game.print("Died on water: " .. tile.name)
--- 		end
--- 	end
--- end)
-
--- script.on_event({defines.events.on_player_died}, function(event)
--- 	game.print("DEATH!")
--- 	log("DEATH")
--- 	local player = game.players[event.player_index]
--- 	local tile = player.surface.get_tile(player.position.x, player.position.y)
--- 	game.print("a?: " .. tile.name)
--- 	log("a?: " .. tile.name)
--- 	if is_water_str(tile.name) then
--- 		game.print("Daied on water: " .. tile.name)
--- 		log("Daied on water: " .. tile.name)
--- 	end
--- end)
-
 script.on_event({defines.events.on_runtime_mod_setting_changed}, function(event)
 	if event.setting == "Noxys_Waterfill-reach-with-waterfill" then
 		validate_global()

@@ -1,5 +1,5 @@
 return {
-recipe_difficulty = {
+	recipe_difficulty = {
 		easy = "Easy",
 		normal = "Normal",
 		hard = "Hard",

@@ -3,6 +3,5 @@ return {
 		easy = "Easy",
 		normal = "Normal",
 		hard = "Hard",
-		extrahard = "Extra Hard",
 	},
 }

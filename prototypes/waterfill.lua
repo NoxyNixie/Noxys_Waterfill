@@ -21,11 +21,11 @@ data:extend({
 		type = "recipe",
 		name = "waterfill",
 		energy_required = 1,
-		enabled = true,
+		enabled = false,
 		category = "crafting-with-fluid",
 		ingredients =
 		{
-			{type = "fluid", name = "water", amount = 100},
+			{type = "fluid", name = "water", amount = 1000},
 		},
 		result = "waterfill",
 		result_count = 1,
@@ -55,11 +55,11 @@ if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 			type = "recipe",
 			name = "deepwaterfill",
 			energy_required = 1,
-			enabled = true,
+			enabled = false,
 			category = "crafting-with-fluid",
 			ingredients =
 			{
-				{type = "fluid", name = "water", amount = 100},
+				{type = "fluid", name = "water", amount = 1000},
 			},
 			result = "deepwaterfill",
 			result_count = 1,
@@ -90,11 +90,11 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 			type = "recipe",
 			name = "waterfill-green",
 			energy_required = 1,
-			enabled = true,
+			enabled = false,
 			category = "crafting-with-fluid",
 			ingredients =
 			{
-				{type = "fluid", name = "water", amount = 100},
+				{type = "fluid", name = "water", amount = 1000},
 			},
 			result = "waterfill-green",
 			result_count = 1,
@@ -124,11 +124,11 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 				type = "recipe",
 				name = "deepwaterfill-green",
 				energy_required = 1,
-				enabled = true,
+				enabled = false,
 				category = "crafting-with-fluid",
 				ingredients =
 				{
-					{type = "fluid", name = "water", amount = 100},
+					{type = "fluid", name = "water", amount = 1000},
 				},
 				result = "deepwaterfill-green",
 				result_count = 1,

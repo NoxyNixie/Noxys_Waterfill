@@ -1,7 +1,7 @@
 data:extend{{
 	type = "technology",
 	name = "waterfill",
-	icon = "__Noxys_Waterfill__/graphics/icons/xhr_waterfill.png",
+	icon = "__Noxys_Waterfill__/graphics/icons/hr_waterfill.png",
 	icon_size = 128,
 	effects =
 	{

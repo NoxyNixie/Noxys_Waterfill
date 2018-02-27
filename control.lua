@@ -74,6 +74,7 @@ script.on_event({defines.events.on_player_cursor_stack_changed}, function(event)
 		elseif is_waterfill_str(global.last_cursor_stack_name[event.player_index]) then
 			local newreach = player.character.character_build_distance_bonus - config.reach
 			player.character.character_build_distance_bonus = newreach > 0 and newreach or 0
+		end
 		if cursor_stack and cursor_stack.valid_for_read then
 			global.last_cursor_stack_name[event.player_index] = cursor_stack.name
 		else

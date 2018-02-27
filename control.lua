@@ -53,7 +53,8 @@ script.on_event({defines.events.on_player_died}, function(event)
 		validate_global()
 		local player = game.players[event.player_index]
 		if is_waterfill_str(global.last_cursor_stack_name[event.player_index]) then
-			player.character.character_build_distance_bonus = player.character.character_build_distance_bonus - config.reach
+			local newreach = player.character.character_build_distance_bonus - config.reach
+			player.character.character_build_distance_bonus = newreach > 0 and newreach or 0
 		end
 		global.last_cursor_stack_name[event.player_index] = nil
 	end
@@ -71,8 +72,8 @@ script.on_event({defines.events.on_player_cursor_stack_changed}, function(event)
 				player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + config.reach
 			end
 		elseif is_waterfill_str(global.last_cursor_stack_name[event.player_index]) then
-			player.character.character_build_distance_bonus = player.character.character_build_distance_bonus - config.reach
-		end
+			local newreach = player.character.character_build_distance_bonus - config.reach
+			player.character.character_build_distance_bonus = newreach > 0 and newreach or 0
 		if cursor_stack and cursor_stack.valid_for_read then
 			global.last_cursor_stack_name[event.player_index] = cursor_stack.name
 		else

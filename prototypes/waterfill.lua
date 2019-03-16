@@ -64,7 +64,7 @@ if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 		},
 	})
 end
-if settings.startup["Noxys_Waterfill-enable-green-water"].value then
+if settings.startup["Noxys_Waterfill-enable-green-water"].value and data.raw.tile["water-green"] then
 	data:extend({
 		-- Item
 		{
@@ -97,7 +97,7 @@ if settings.startup["Noxys_Waterfill-enable-green-water"].value then
 			result_count = 1,
 		},
 	})
-	if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
+	if settings.startup["Noxys_Waterfill-enable-deep-water"].value and data.raw.tile["deepwater-green"] then
 		data:extend({
 			-- Item
 			{

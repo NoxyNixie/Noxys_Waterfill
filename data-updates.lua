@@ -29,7 +29,7 @@ if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe
 elseif settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.hard then
 	table.insert(data.raw.technology["waterfill"].prerequisites, "explosives")
 	table.insert(data.raw.technology["waterfill"].prerequisites, "advanced-electronics-2")
-	table.insert(data.raw.technology["waterfill"].unit.ingredients, {"science-pack-3", 1})
+	table.insert(data.raw.technology["waterfill"].unit.ingredients, {"chemical-science-pack", 1})
 	table.insert(data.raw.technology["waterfill"].unit.ingredients, {"military-science-pack", 1})
 	data.raw.technology["waterfill"].unit.count = 400
 	data.raw.technology["waterfill"].unit.time = 120

@@ -22,12 +22,20 @@ if settings.startup["Noxys_Waterfill-green-water-requires-uranium"].value then
 end
 
 if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.normal then
-	table.insert(data.raw.technology["waterfill"].prerequisites, "explosives")
+	if (data.raw.technology["waterfill"].prerequisites) then
+		table.insert(data.raw.technology["waterfill"].prerequisites, "explosives")
+	else
+		data.raw.technology["waterfill"].prerequisites = {"landfill", "explosives"}
+	end
 	table.insert(data.raw.technology["waterfill"].unit.ingredients, {"military-science-pack", 1})
 	data.raw.technology["waterfill"].unit.count = 200
 	data.raw.technology["waterfill"].unit.time = 60
 elseif settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.hard then
-	table.insert(data.raw.technology["waterfill"].prerequisites, "explosives")
+	if (data.raw.technology["waterfill"].prerequisites) then
+		table.insert(data.raw.technology["waterfill"].prerequisites, "explosives")
+	else
+		data.raw.technology["waterfill"].prerequisites = {"landfill", "explosives"}
+	end
 	table.insert(data.raw.technology["waterfill"].prerequisites, "advanced-electronics-2")
 	table.insert(data.raw.technology["waterfill"].unit.ingredients, {"chemical-science-pack", 1})
 	table.insert(data.raw.technology["waterfill"].unit.ingredients, {"military-science-pack", 1})

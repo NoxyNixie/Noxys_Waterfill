@@ -24,6 +24,13 @@ data:extend({
 		order = "b-b"
 	},
 	{
+		type = "bool-setting",
+		name = "Noxys_Waterfill-require-research",
+		setting_type = "startup",
+		default_value = true,
+		order = "b-c"
+	},
+	{
 		type = "string-setting",
 		name = "Noxys_Waterfill-recipe-difficulty",
 		setting_type = "startup",

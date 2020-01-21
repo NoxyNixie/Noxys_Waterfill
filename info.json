@@ -1,11 +1,13 @@
 {
-  "name": "Noxys_Waterfill",
-  "version": "0.1.5",
-  "factorio_version": "0.17",
-  "title": "Noxys Waterfill",
-  "author": "Noxy",
-  "contact": "not.a.valid.email.address@example.com",
-  "homepage": "https://mods.factorio.com/user/_noxy_",
-  "description": "Various placeable waters. Very configurable.",
-  "dependencies": ["base >= 0.17.0"]
+	"name": "Noxys_Waterfill",
+	"version": "0.2.0",
+	"factorio_version": "0.18",
+	"title": "Noxys Waterfill",
+	"author": "Noxy",
+	"contact": "not.a.valid.email.address@example.com",
+	"homepage": "https://mods.factorio.com/user/_noxy_",
+	"description": "Various placeable waters. Very configurable.",
+	"dependencies": [
+		"base >= 0.18.0"
+	]
 }

@@ -56,6 +56,14 @@ data:extend({
 		maximum_value = 3600,
 		order = "e"
 	},
+	{
+		type = "int-setting",
+		name = "Noxys_Waterfill-water-per-deepwater",
+		setting_type = "startup",
+		minimum_value = 0,
+		default_value = 0,
+		order = "f"
+	},
 	-- Global
 	{
 		type = "bool-setting",

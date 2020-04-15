@@ -21,6 +21,13 @@ if settings.startup["Noxys_Waterfill-green-water-requires-uranium"].value then
 	end
 end
 
+if settings.startup["Noxys_Waterfill-enable-deep-water"].value and settings.startup["Noxys_Waterfill-water-per-deepwater"].value > 1 then
+	data.raw.recipe["deepwaterfill"].ingredients = {{type = "item", name = "waterfill", amount = settings.startup["Noxys_Waterfill-water-per-deepwater"].value}}
+	if settings.startup["Noxys_Waterfill-enable-green-water"].value then
+		data.raw.recipe["deepwaterfill-green"].ingredients = {{type = "item", name = "waterfill-green", amount = settings.startup["Noxys_Waterfill-water-per-deepwater"].value}}
+	end
+end
+
 if settings.startup["Noxys_Waterfill-require-research"].value then
 	if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.normal then
 		if (data.raw.technology["waterfill"].prerequisites) then

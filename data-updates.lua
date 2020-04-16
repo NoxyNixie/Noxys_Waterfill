@@ -13,15 +13,15 @@ for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill
 	end
 end
 
-local recipedata = settings.startup["Noxys_Waterfill-recipe-override"].value
-if string.len(recipedata) > 5 then
-	local recipe = {}
-	for typ, name, amount in string.gmatch(recipedata, "([^:]+):([^=]+)=([0-9]+)([;, ]*)") do
-		table.insert(recipe, {type = typ, name = name, amount = tonumber(amount)})
-	end
-	if #recipe > 0 then
-		for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
-			data.raw.recipe[r].ingredients = table.deepcopy(recipe)
+for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+	local recipedata = settings.startup["Noxys_Waterfill-" .. r .. "-recipe-override"].value
+	if string.len(recipedata) > 5 then
+		local recipe = {}
+		for typ, name, amount in string.gmatch(recipedata, "([^:]+):([^=]+)=([0-9]+)([;, ]*)") do
+			table.insert(recipe, {type = typ, name = name, amount = tonumber(amount)})
+		end
+		if #recipe > 0 then
+			data.raw.recipe[r].ingredients = recipe
 		end
 	end
 end

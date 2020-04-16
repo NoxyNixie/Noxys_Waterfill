@@ -64,14 +64,6 @@ data:extend({
 		default_value = 0,
 		order = "f"
 	},
-	{
-		type = "string-setting",
-		name = "Noxys_Waterfill-recipe-override",
-		setting_type = "startup",
-		allow_blank = true,
-		default_value = "",
-		order = "g"
-	},
 	-- Global
 	{
 		type = "bool-setting",
@@ -91,3 +83,14 @@ data:extend({
 	},
 	-- Per user
 })
+
+for i,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+	data:extend({{
+		type = "string-setting",
+		name = "Noxys_Waterfill-" .. r .. "-recipe-override",
+		setting_type = "startup",
+		allow_blank = true,
+		default_value = "",
+		order = "h" .. i
+	}})
+end

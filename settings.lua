@@ -64,6 +64,14 @@ data:extend({
 		default_value = 0,
 		order = "f"
 	},
+	{
+		type = "string-setting",
+		name = "Noxys_Waterfill-recipe-override",
+		setting_type = "startup",
+		allow_blank = true,
+		default_value = "",
+		order = "g"
+	},
 	-- Global
 	{
 		type = "bool-setting",

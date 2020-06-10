@@ -84,7 +84,7 @@ data:extend({
 	-- Per user
 })
 
-for i,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+for i,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
 	data:extend({{
 		type = "string-setting",
 		name = "Noxys_Waterfill-" .. r .. "-recipe-override",

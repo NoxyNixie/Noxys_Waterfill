@@ -1,6 +1,6 @@
 local choices = require("choices")
 
-for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
 	if data.raw.recipe[r] then
 		if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.normal then
 			table.insert(data.raw.recipe[r].ingredients, {type = "item", name = "explosives", amount = 1})
@@ -13,7 +13,7 @@ for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill
 	end
 end
 
-for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
 	local recipedata = settings.startup["Noxys_Waterfill-" .. r .. "-recipe-override"].value
 	if string.len(recipedata) > 5 then
 		local recipe = {}
@@ -74,7 +74,7 @@ if settings.startup["Noxys_Waterfill-require-research"].value then
 		end
 	end
 else
-	for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+	for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
 		if data.raw.recipe[r] then
 			data.raw.recipe[r].enabled = true
 		end

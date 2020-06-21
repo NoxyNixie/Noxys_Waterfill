@@ -7,6 +7,8 @@ if settings.startup["Noxys_Waterfill-require-research"].value then
 		effects =
 		{
 			{type = "unlock-recipe", recipe = "waterfill"},
+			{type = "unlock-recipe", recipe = "shallowwaterfill"},
+			{type = "unlock-recipe", recipe = "mudwaterfill"},
 		},
 		prerequisites = {"landfill"},
 		unit =

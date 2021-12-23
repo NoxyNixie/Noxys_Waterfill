@@ -1,5 +1,9 @@
 local choices = require("choices")
 
+for _,r in pairs{"water", "water-shallow", "water-green", "water-mud", "deepwater", "deepwater-green"} do
+	data.raw.tile[r].check_collision_with_entities = true
+end
+
 for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
 	if data.raw.recipe[r] then
 		if settings.startup["Noxys_Waterfill-recipe-difficulty"].value == choices.recipe_difficulty.normal then

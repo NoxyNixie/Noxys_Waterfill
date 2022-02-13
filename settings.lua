@@ -36,7 +36,15 @@ data:extend({
 		setting_type = "startup",
 		default_value = choices.recipe_difficulty.normal,
 		allowed_values = choices.recipe_difficulty,
-		order = "c",
+		order = "c-a",
+	},
+	{
+		type = "string-setting",
+		name = "Noxys_Waterfill-waterfillable",
+		setting_type = "startup",
+		default_value = choices.waterfillable.none,
+		allowed_values = choices.waterfillable,
+		order = "c-b",
 	},
 	{
 		type = "int-setting",

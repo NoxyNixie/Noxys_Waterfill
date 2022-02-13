@@ -1,7 +1,37 @@
 local choices = require("choices")
 
-for _,r in pairs{"water", "water-shallow", "water-green", "water-mud", "deepwater", "deepwater-green"} do
-	data.raw.tile[r].check_collision_with_entities = true
+if settings.startup["Noxys_Waterfill-waterfillable"].value ~= choices.waterfillable.all then
+	for _,r in pairs{"water", "water-shallow", "water-green", "water-mud", "deepwater", "deepwater-green"} do
+		data.raw.tile[r].check_collision_with_entities = true
+	end
+end
+local generated_entities = {"resource", "tree", "simple-entity"}
+if
+	settings.startup["Noxys_Waterfill-waterfillable"].value == choices.waterfillable.generated or
+	settings.startup["Noxys_Waterfill-waterfillable"].value == choices.waterfillable.generated_and_biters
+then
+	for _,e in pairs(generated_entities) do
+		for k,v in pairs(data.raw[e]) do
+			if (data.raw[e][k].autoplace ~= nil) then
+				data.raw[e][k].protected_from_tile_building = false
+			end
+		end
+	end
+	for k,v in pairs(data.raw.cliff) do
+		data.raw.cliff[k].protected_from_tile_building = false
+	end
+end
+if settings.startup["Noxys_Waterfill-waterfillable"].value == choices.waterfillable.generated_and_biters then
+	for _,e in pairs{"unit-spawner", "unit"} do
+		for k,v in pairs(data.raw[e]) do
+			data.raw[e][k].protected_from_tile_building = false
+		end
+	end
+	for k,v in pairs(data.raw.turret) do
+		if (data.raw.turret[k].autoplace ~= nil) then
+			data.raw.turret[k].protected_from_tile_building = false
+		end
+	end
 end
 
 for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
@@ -25,7 +55,9 @@ for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill
 			table.insert(recipe, {type = typ, name = name, amount = tonumber(amount)})
 		end
 		if #recipe > 0 then
-			data.raw.recipe[r].ingredients = recipe
+			if data.raw.recipe[r] then
+				data.raw.recipe[r].ingredients = recipe
+			end
 		end
 	end
 end

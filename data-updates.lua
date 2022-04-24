@@ -70,9 +70,11 @@ if settings.startup["Noxys_Waterfill-green-water-requires-uranium"].value then
 	end
 end
 
-if settings.startup["Noxys_Waterfill-enable-deep-water"].value and settings.startup["Noxys_Waterfill-water-per-deepwater"].value > 1 then
-	data.raw.recipe["deepwaterfill"].ingredients = {{type = "item", name = "waterfill", amount = settings.startup["Noxys_Waterfill-water-per-deepwater"].value}}
-	if settings.startup["Noxys_Waterfill-enable-green-water"].value then
+if settings.startup["Noxys_Waterfill-water-per-deepwater"].value > 1 then
+	if data.raw.recipe["deepwaterfill"] then
+		data.raw.recipe["deepwaterfill"].ingredients = {{type = "item", name = "waterfill", amount = settings.startup["Noxys_Waterfill-water-per-deepwater"].value}}
+	end
+	if data.raw.recipe["deepwaterfill-green"] then
 		data.raw.recipe["deepwaterfill-green"].ingredients = {{type = "item", name = "waterfill-green", amount = settings.startup["Noxys_Waterfill-water-per-deepwater"].value}}
 	end
 end
@@ -100,28 +102,17 @@ if settings.startup["Noxys_Waterfill-require-research"].value then
 		data.raw.technology["waterfill"].unit.time = 120
 	end
 
-	if settings.startup["Noxys_Waterfill-enable-shallow-water"].value then
-		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "shallowwaterfill"})
-	end
-	if settings.startup["Noxys_Waterfill-enable-muddy-water"].value then
-		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "mudwaterfill"})
-	end
-	if settings.startup["Noxys_Waterfill-enable-standard-water"].value then
-		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "waterfill"})
-	end
-	if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
-		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "deepwaterfill"})
-	end
-	if settings.startup["Noxys_Waterfill-enable-green-water"].value then
-		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "waterfill-green"})
-		if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
-			table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "deepwaterfill-green"})
+	for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
+		if settings.startup["Noxys_Waterfill-enable-" .. r].value then
+			table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = r})
 		end
 	end
 else
 	for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green", "shallowwaterfill", "mudwaterfill"} do
-		if data.raw.recipe[r] then
-			data.raw.recipe[r].enabled = true
+		if settings.startup["Noxys_Waterfill-enable-" .. r].value then
+			if data.raw.recipe[r] then
+				data.raw.recipe[r].enabled = true
+			end
 		end
 	end
 end

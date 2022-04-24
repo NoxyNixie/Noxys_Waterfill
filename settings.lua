@@ -4,10 +4,31 @@ data:extend({
 	-- Startup
 	{
 		type = "bool-setting",
+		name = "Noxys_Waterfill-enable-shallow-water",
+		setting_type = "startup",
+		default_value = true,
+		order = "a-a"
+	},
+	{
+		type = "bool-setting",
+		name = "Noxys_Waterfill-enable-muddy-water",
+		setting_type = "startup",
+		default_value = true,
+		order = "a-b"
+	},
+	{
+		type = "bool-setting",
+		name = "Noxys_Waterfill-enable-standard-water",
+		setting_type = "startup",
+		default_value = true,
+		order = "a-c"
+	},	
+	{
+		type = "bool-setting",
 		name = "Noxys_Waterfill-enable-deep-water",
 		setting_type = "startup",
 		default_value = true,
-		order = "a"
+		order = "a-d"
 	},
 	{
 		type = "bool-setting",

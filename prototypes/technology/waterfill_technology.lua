@@ -4,12 +4,7 @@ if settings.startup["Noxys_Waterfill-require-research"].value then
 		name = "waterfill",
 		icon = "__Noxys_Waterfill__/graphics/icons/hr_waterfill.png",
 		icon_size = 128,
-		effects =
-		{
-			{type = "unlock-recipe", recipe = "waterfill"},
-			{type = "unlock-recipe", recipe = "shallowwaterfill"},
-			{type = "unlock-recipe", recipe = "mudwaterfill"},
-		},
+		effects = {},
 		prerequisites = {"landfill"},
 		unit =
 		{

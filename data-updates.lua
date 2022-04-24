@@ -100,6 +100,15 @@ if settings.startup["Noxys_Waterfill-require-research"].value then
 		data.raw.technology["waterfill"].unit.time = 120
 	end
 
+	if settings.startup["Noxys_Waterfill-enable-shallow-water"].value then
+		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "shallowwaterfill"})
+	end
+	if settings.startup["Noxys_Waterfill-enable-muddy-water"].value then
+		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "mudwaterfill"})
+	end
+	if settings.startup["Noxys_Waterfill-enable-standard-water"].value then
+		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "waterfill"})
+	end
 	if settings.startup["Noxys_Waterfill-enable-deep-water"].value then
 		table.insert(data.raw.technology["waterfill"].effects, {type = "unlock-recipe", recipe = "deepwaterfill"})
 	end

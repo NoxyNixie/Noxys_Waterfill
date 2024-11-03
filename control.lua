@@ -8,7 +8,7 @@ end
 cache_settings()
 
 local function is_waterfill_str(str)
-	for _,r in pairs{"waterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
+	for _,r in pairs{"waterfill", "shallowwaterfill", "mudwaterfill", "deepwaterfill", "waterfill-green", "deepwaterfill-green"} do
 		if str == r then
 			return true
 		end
@@ -24,11 +24,11 @@ local function is_waterfill(item)
 end
 
 local function validate_global()
-	if not global.last_cursor_stack_name or type(global.last_cursor_stack_name) ~= "table" then
-		global.last_cursor_stack_name = {}
+	if not storage.last_cursor_stack_name or type(storage.last_cursor_stack_name) ~= "table" then
+		storage.last_cursor_stack_name = {}
 	end
-	if not global.last_distance_bonus or type(global.last_distance_bonus) ~= "number" then
-		global.last_distance_bonus = config.reach
+	if not storage.last_distance_bonus or type(storage.last_distance_bonus) ~= "number" then
+		storage.last_distance_bonus = config.reach
 	end
 end
 
@@ -37,14 +37,14 @@ script.on_event({defines.events.on_runtime_mod_setting_changed}, function(event)
 		validate_global()
 		for _,player in pairs(game.players) do
 			if is_waterfill(player.cursor_stack) then
-				if player.character.character_build_distance_bonus + (config.reach - global.last_distance_bonus) >= 0 then
-					player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + (config.reach - global.last_distance_bonus)
+				if player.character.character_build_distance_bonus + (config.reach - storage.last_distance_bonus) >= 0 then
+					player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + (config.reach - storage.last_distance_bonus)
 				else
 					player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + config.reach
 				end
 			end
 		end
-		global.last_distance_bonus = config.reach
+		storage.last_distance_bonus = config.reach
 	end
 end)
 
@@ -52,11 +52,11 @@ script.on_event({defines.events.on_player_died}, function(event)
 	if config.rech_enabled then
 		validate_global()
 		local player = game.players[event.player_index]
-		if is_waterfill_str(global.last_cursor_stack_name[event.player_index]) then
+		if is_waterfill_str(storage.last_cursor_stack_name[event.player_index]) then
 			local newreach = player.character.character_build_distance_bonus - config.reach
 			player.character.character_build_distance_bonus = newreach > 0 and newreach or 0
 		end
-		global.last_cursor_stack_name[event.player_index] = nil
+		storage.last_cursor_stack_name[event.player_index] = nil
 	end
 end)
 
@@ -66,19 +66,19 @@ script.on_event({defines.events.on_player_cursor_stack_changed}, function(event)
 		local player = game.players[event.player_index]
 		if not player.character then return end
 		local cursor_stack = player.cursor_stack
-		if global.last_cursor_stack_name[event.player_index] and cursor_stack and cursor_stack.valid_for_read and global.last_cursor_stack_name[event.player_index] == cursor_stack.name then return end
+		if storage.last_cursor_stack_name[event.player_index] and cursor_stack and cursor_stack.valid_for_read and storage.last_cursor_stack_name[event.player_index] == cursor_stack.name then return end
 		if is_waterfill(cursor_stack) then
-			if not is_waterfill_str(global.last_cursor_stack_name[event.player_index]) then
+			if not is_waterfill_str(storage.last_cursor_stack_name[event.player_index]) then
 				player.character.character_build_distance_bonus = player.character.character_build_distance_bonus + config.reach
 			end
-		elseif is_waterfill_str(global.last_cursor_stack_name[event.player_index]) then
+		elseif is_waterfill_str(storage.last_cursor_stack_name[event.player_index]) then
 			local newreach = player.character.character_build_distance_bonus - config.reach
 			player.character.character_build_distance_bonus = newreach > 0 and newreach or 0
 		end
 		if cursor_stack and cursor_stack.valid_for_read then
-			global.last_cursor_stack_name[event.player_index] = cursor_stack.name
+			storage.last_cursor_stack_name[event.player_index] = cursor_stack.name
 		else
-			global.last_cursor_stack_name[event.player_index] = nil
+			storage.last_cursor_stack_name[event.player_index] = nil
 		end
 	end
 end)

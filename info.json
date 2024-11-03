@@ -1,13 +1,13 @@
 {
 	"name": "Noxys_Waterfill",
-	"version": "0.4.4",
-	"factorio_version": "1.1",
+	"version": "0.5.0",
+	"factorio_version": "2.0",
 	"title": "Noxys Waterfill",
 	"author": "Noxy",
 	"contact": "not.a.valid.email.address@example.com",
 	"homepage": "https://mods.factorio.com/user/_noxy_",
 	"description": "Various placeable waters. Very configurable.",
 	"dependencies": [
-		"base >= 1.1.50"
+		"base >= 2.0"
 	]
 }

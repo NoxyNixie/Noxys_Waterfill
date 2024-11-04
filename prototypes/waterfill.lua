@@ -4,7 +4,8 @@ local waters = {
   ["waterfill-green"] = { result = "water-green", order = "e" },
   ["deepwaterfill-green"] = { result = "deepwater-green", order = "f" },
   ["shallowwaterfill"] = { result = "water-shallow", order = "c" },
-  ["mudwaterfill"] = { result = "water-mud", order = "d" }
+  ["mudwaterfill"] = { result = "water-mud", order = "d" },
+  ["water-wubefill"] = { result = "water-wube", order = "e" },
 }
 
 for k, v in pairs(waters) do
@@ -13,8 +14,8 @@ for k, v in pairs(waters) do
     {
       type = "item",
       name = k,
-      icon = "__Noxys_Waterfill__/graphics/icons/" .. k .. ".png",
-      icon_size = 32,
+      icon = "__Noxys_Waterfill__/graphics/icons/hr_" .. k .. ".png",
+      icon_size = 128,
       subgroup = "terrain",
       order = "c[landfill]-z-" .. v.order .. "[water]",
       stack_size = 100,

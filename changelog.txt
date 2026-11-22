@@ -3,3 +3,5 @@ Version: 0.5.2
 Date: 2026-11-22
   Bugfixes:
     - Fixed a misspelled configuration name in one event handler
+  Compatibility:
+    - Updated to Factorio 2.1

@@ -49,7 +49,7 @@ script.on_event({defines.events.on_runtime_mod_setting_changed}, function(event)
 end)
 
 script.on_event({defines.events.on_player_died}, function(event)
-	if config.rech_enabled then
+	if config.reach_enabled then
 		validate_global()
 		local player = game.players[event.player_index]
 		if is_waterfill_str(storage.last_cursor_stack_name[event.player_index]) then
